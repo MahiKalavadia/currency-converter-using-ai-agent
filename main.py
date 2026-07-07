@@ -38,7 +38,11 @@ response = agent.invoke({
         "role":"user",
         "content": query
     }]
-})
+},
+config={
+    "callbacks":[langfuse_handler]
+}
+)
 
 logger.info(f"Resulted acheived: {response}")
 amount = response["messages"][-1].content
